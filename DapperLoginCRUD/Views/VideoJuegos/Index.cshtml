@@ -1,0 +1,47 @@
+﻿﻿
+@model IEnumerable<VideoJuegos>
+@{
+    ViewData["Title"] = "HCI";
+}
+
+<h1>HOJA DE CONTROL INDIVIDUAL</h1>
+<a asp-action="CrearHci" class="btn btn-primary mb-3">Registrar HCI</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Consola</th>
+            <th>Genero</th>
+            <th>Edad</th>
+            <th>Acciones</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var videoJuegos in Model)
+        {
+                <tr>
+                    <td>
+                        @videoJuegos.Nombre
+                    </td>
+                    <td>
+                        @videoJuegos.Consola
+                    </td>
+                    <td>
+                        @videoJuegos.Genero
+                    </td>
+                    <td>
+                        @videoJuegos.Edad
+                    </td>
+                    <td>
+                        <div style="display: flex;">
+                              @*<a class="btn btn-danger" asp-action="BorrarHci"  asp-route-id="@hci.IdHci">Borrar</a>*@
+                           @*  <a class="btn btn-primary" asp-action="EditarHci" asp-route-id="@hci.IdHci" style="margin-right: 5px;">Editar</a>
+                            <a class="btn btn-success" asp-action="ExportarExcel" asp-route-id="@hci.IdHci" style="margin-right: 5px;">Excel</a> *@
+                        </div>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
