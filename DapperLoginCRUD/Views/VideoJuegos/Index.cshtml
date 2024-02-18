@@ -1,44 +1,44 @@
 ﻿﻿
 @model IEnumerable<VideoJuegos>
 @{
-    ViewData["Title"] = "HCI";
+    ViewData["Title"] = "CRUD Videojuegos";
 }
 
-<h1>HOJA DE CONTROL INDIVIDUAL</h1>
-<a asp-action="CrearHci" class="btn btn-primary mb-3">Registrar HCI</a>
+<h1>Videojuegos</h1>
+<a asp-action="RegistrarVideojuego" class="btn btn-primary mb-3">Registrar elemento</a>
+
 <table class="table">
     <thead>
         <tr>
             <th>Nombre</th>
             <th>Consola</th>
             <th>Genero</th>
-            <th>Edad</th>
+            <th>Clasificación de Edad</th>
             <th>Acciones</th>
         </tr>
 
     </thead>
 
     <tbody>
-        @foreach (var videoJuegos in Model)
+        @foreach (var videoJuego in Model)
         {
                 <tr>
                     <td>
-                        @videoJuegos.Nombre
+                        @videoJuego.Nombre
                     </td>
                     <td>
-                        @videoJuegos.Consola
+                        @videoJuego.Consola
                     </td>
                     <td>
-                        @videoJuegos.Genero
+                        @videoJuego.Genero
                     </td>
                     <td>
-                        @videoJuegos.Edad
+                        @videoJuego.ClasificacionEdad
                     </td>
                     <td>
                         <div style="display: flex;">
-                              @*<a class="btn btn-danger" asp-action="BorrarHci"  asp-route-id="@hci.IdHci">Borrar</a>*@
-                           @*  <a class="btn btn-primary" asp-action="EditarHci" asp-route-id="@hci.IdHci" style="margin-right: 5px;">Editar</a>
-                            <a class="btn btn-success" asp-action="ExportarExcel" asp-route-id="@hci.IdHci" style="margin-right: 5px;">Excel</a> *@
+                            <a class="btn btn-danger" asp-action="BorrarVideojuego" asp-route-id="@videoJuego.Id" style="margin-right: 5px;">Borrar</a>
+                            <a class="btn btn-primary" asp-action="EditarVideojuego" asp-route-id="@videoJuego.Id">Editar</a>
                         </div>
                     </td>
                 </tr>

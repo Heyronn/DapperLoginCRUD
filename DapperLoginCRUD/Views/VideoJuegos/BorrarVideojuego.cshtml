@@ -1,0 +1,14 @@
+﻿@model VideoJuegos
+
+@{
+    ViewData["Title"] = "Borrar Videojuego";
+}
+
+
+<h3 class="mb-3">¿Estas seguro que desea borrar el videojuego @Model.Nombre?</h3>
+
+<form asp-action="BorrarRegistroVideojuego">
+    <input type="hidden" asp-for="Id">
+    <button class="btn btn-danger" type="submit">Borrar</button>
+    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+</form>

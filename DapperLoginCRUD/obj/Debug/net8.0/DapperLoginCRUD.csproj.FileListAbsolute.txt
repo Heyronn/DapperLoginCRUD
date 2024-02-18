@@ -73,3 +73,4 @@ C:\Users\Aaron\source\repos\DapperLoginCRUD\DapperLoginCRUD\obj\Debug\net8.0\ref
 C:\Users\Aaron\source\repos\DapperLoginCRUD\DapperLoginCRUD\obj\Debug\net8.0\DapperLoginCRUD.pdb
 C:\Users\Aaron\source\repos\DapperLoginCRUD\DapperLoginCRUD\obj\Debug\net8.0\DapperLoginCRUD.genruntimeconfig.cache
 C:\Users\Aaron\source\repos\DapperLoginCRUD\DapperLoginCRUD\obj\Debug\net8.0\ref\DapperLoginCRUD.dll
+C:\Users\Aaron\source\repos\DapperLoginCRUD\DapperLoginCRUD\obj\Debug\net8.0\DapperLoginCRUD.sourcelink.json

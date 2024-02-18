@@ -1,5 +1,5 @@
-﻿using DapperLoginCRUD.Services;
-using Microsoft.AspNetCore.Http;
+﻿using DapperLoginCRUD.Models;
+using DapperLoginCRUD.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DapperLoginCRUD.Controllers
@@ -23,14 +23,8 @@ namespace DapperLoginCRUD.Controllers
             return View(conjuntoVideojuegos);
         }
 
-        //// GET: VideoJuegosController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
-
         // GET: VideoJuegosController/Create
-        public ActionResult Create()
+        public ActionResult RegistrarVideojuego()
         {
             return View();
         }
@@ -38,57 +32,84 @@ namespace DapperLoginCRUD.Controllers
         // POST: VideoJuegosController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> RegistrarVideojuego(VideoJuegos videojuego)
         {
+            var idUsuario = servicioUsuario.ObtenerUsuarioId();
+
             try
             {
+                videojuego.IdUsuario = idUsuario;
+                await repositorioVideoJuegos.CrearVideojuego(videojuego);
+
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return View();
+            }
+            finally
+            {
+                Console.WriteLine("Esto siempre se ejecuta SELECT");
             }
         }
 
         // GET: VideoJuegosController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> EditarVideojuego(int id)
         {
-            return View();
+            var idUsuario = servicioUsuario.ObtenerUsuarioId();
+            var registroVideojuego = await repositorioVideoJuegos.ObtenerPorId(id, idUsuario);
+            return View(registroVideojuego);
         }
 
         // POST: VideoJuegosController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> EditarVideoJuego(VideoJuegos videojuego)
         {
             try
             {
+                await repositorioVideoJuegos.Actualizar(videojuego);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return View();
+            }
+            finally
+            {
+                Console.WriteLine("Esto siempre se ejecuta EDIT");
             }
         }
 
         // GET: VideoJuegosController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> BorrarVideojuego(int id)
         {
-            return View();
+            var idUsuario = servicioUsuario.ObtenerUsuarioId();
+            var registroVideojuego = await repositorioVideoJuegos.ObtenerPorId(id, idUsuario);
+            return View(registroVideojuego);
+            
         }
 
         // POST: VideoJuegosController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> BorrarRegistroVideojuego(int id)
         {
             try
             {
+                await repositorioVideoJuegos.Borrar(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return View();
+            }
+            finally
+            {
+                Console.WriteLine("Esto siempre se ejecuta DELETE");
             }
         }
     }

@@ -1,0 +1,37 @@
+﻿@model VideoJuegos
+@{
+    ViewData["Title"] = "Registrar nuevo Videojuego";
+}
+
+<h1>REGISTRAR VIDEOJUEGO</h1>
+
+<form aps-controller="VideoJuegos" asp-action="RegistrarVideoJuego">
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input type="text" asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Consola">Consola</label>
+        <input type="text" asp-for="Consola" class="form-control" />
+        <span asp-validation-for="Consola" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Genero">Genero</label>
+        <input type="text" asp-for="Genero" class="form-control" />
+        <span asp-validation-for="Genero" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ClasificacionEdad">Clasificación</label>
+        <input type="text" asp-for="ClasificacionEdad" class="form-control" />
+        <span asp-validation-for="ClasificacionEdad" class="text-danger"></span>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
