@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DapperLoginCRUD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de3e466b1b28c03773870e9e738cbbc74229c3cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f586cd4ae0fc74e84257f8b81a11c80ee8bf2fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("DapperLoginCRUD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DapperLoginCRUD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,9 +1,11 @@
 ﻿using DapperLoginCRUD.Models;
 using DapperLoginCRUD.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DapperLoginCRUD.Controllers
 {
+    //[Authorize]
     public class VideoJuegosController : Controller
     {
         private readonly IServicioUsuario servicioUsuario;
@@ -15,6 +17,7 @@ namespace DapperLoginCRUD.Controllers
         }
 
         // GET: VideoJuegosController
+        //[Authorize]
         public async Task<ActionResult> Index()
         {
             var idUsuario = servicioUsuario.ObtenerUsuarioId();

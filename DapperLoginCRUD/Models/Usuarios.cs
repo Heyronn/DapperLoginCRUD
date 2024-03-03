@@ -5,7 +5,7 @@
 
         public int IdUsuario { get; set; }
         public string Email { get; set; }
-        public int EmailNormalizado { get; set; }
-        public int PasswordHash { get; set; }
+        public string EmailNormalizado { get; set; }
+        public string PasswordHash { get; set; }
     }
 }
